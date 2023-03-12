@@ -16,9 +16,21 @@ $(document).ready(function() {
   })
 })
 
-let timeBlock = parseInt($(".hour").text())
+function keepTime() {
+  let timeNow = dayjs().hour();
 
-console.log(timeBlock)
+  $(".time-block").each(function() {
+    let timeBlock = parseInt($(this).attr("id").split("hour-")[1]);
+
+
+    console.log(timeBlock); 
+  })
+  
+
+
+}
+
+keepTime()
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
