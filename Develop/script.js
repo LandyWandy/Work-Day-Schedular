@@ -1,6 +1,24 @@
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
+const tasks = document.querySelectorAll(".description");
+let currentDayTime = dayjs().format('MMMM D, YYYY h:mm A');
+let task = localStorage.getItem("task")
+task = tasks.textContent
+
+$("#currentDay").html(currentDayTime)
+
+$(document).ready(function() {
+  $(".btn").on("click", function() {
+    let task = $(this).siblings(".description").val();
+    let timeSubmitted = $(this).parent().attr("id");
+    localStorage.setItem(task, timeSubmitted)
+  })
+})
+
+let timeBlock = parseInt($(".hour").text())
+
+console.log(timeBlock)
 $(function () {
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
